@@ -1,8 +1,8 @@
 opt_disable EEPROM_CHITCHAT # Save PROGMEM space
 opt_enable SLIM_LCD_MENUS # Save PROGMEM space
 opt_enable DISABLE_M503 # Save PROGMEM space
-opt_enable LINANCE # Linear advance
-opt_set LINANCE_K 1.0 # Preconfigure K to 1.0; this needs to be changed in GCODE for different materials and temperatures
+opt_enable LIN_ADVANCE # Linear advance
+opt_set LIN_ADVANCE_K 1.0 # Preconfigure K to 1.0; this needs to be changed in GCODE for different materials and temperatures
 opt_enable NOZZLE_PARK_FEATURE # Needed for ADVANCED_PAUSE_FEATURE # Filament load/unload in the menu
 # https://www.thingiverse.com/thing:3057052 # Filament load/unload in the menu
 opt_enable PARK_HEAD_ON_PAUSE # Filament load/unload in the menu
