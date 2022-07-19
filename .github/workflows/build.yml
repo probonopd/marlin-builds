@@ -32,10 +32,10 @@ jobs:
           pip install --upgrade platformio
       # Clone Marlin
       - name: Clone Marlin source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: MarlinFirmware/Marlin
-          ref: refs/tags/2.0.9.3
+          ref: refs/tags/2.1
           path: marlin/Marlin
 
       # TODO: Configure
