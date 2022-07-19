@@ -29,6 +29,9 @@ jobs:
           - configuration: Creality/Ender-2 Pro/CrealityV423
             ref: refs/tags/2.1
             environment: STM32F103RE_creality
+          - configuration: Creality/Ender-3/CrealityV1
+            ref: refs/tags/2.1
+            environment: melzi_optiboot_optimized
             
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -68,7 +71,8 @@ jobs:
         run: |
              cd marlin/Marlin && pio run -e ${{ matrix.environment }}
              NAME=$(echo "${{ matrix.configuration }}_${{ matrix.ref }}" | sed -e 's|/|_|g')
-             cp .pio/build/*/firmware-*.bin "firmware-$NAME.bin"
+             cp .pio/build/*/firmware-*.bin "firmware-$NAME.bin" || true # for 32-bit firmware
+             cp .pio/build/*/firmware-*.hex "firmware-$NAME.hex" || true # for 16-bit firmware
 
       # Upload build
       - uses: actions/upload-artifact@v2
