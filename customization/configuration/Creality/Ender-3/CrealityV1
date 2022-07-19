@@ -1,0 +1,35 @@
+# Allen Key Probe
+# https://www.youtube.com/watch?v=xnBpRn5ex0Q
+
+opt_enable SLIM_LCD_MENUS
+opt_enable AUTO_BED_LEVELING_BILINEAR
+opt_enable Z_SAFE_HOMING
+
+opt_set X_PROBE_OFFSET_FROM_EXTRUDER -45 # X offset: -left +right [of the nozzle]
+opt_set Y_PROBE_OFFSET_FROM_EXTRUDER -3 # Y offset: -front +behind [the nozzle]
+opt_set Z_PROBE_OFFSET_FROM_EXTRUDER -10.93 # Z offset: -below +above [the nozzle]
+# For the Z offset you need to discover yourself, it all depends how long is the Allen-key you use!
+
+# For M851 give a range for adjusting the Z probe offset
+opt_set Z_PROBE_OFFSET_RANGE_MIN -20
+opt_set Z_PROBE_OFFSET_RANGE_MAX 20
+
+opt_enable AUTO_BED_LEVELING_BILINEAR
+
+opt_set GRID_MAX_POINTS_X 4 # Vumber of grid points per dimension
+
+# Homing speeds (mm/m)
+opt_set HOMING_FEEDRATE_XY (20*60)
+opt_set HOMING_FEEDRATE_Z  (20*60)
+
+opt_enable EEPROM_SETTINGS # Enable for M500 and M501 commands
+opt_disable DISABLE_M503    # Saves ~2700 bytes of PROGMEM. Disable for release!
+opt_disable EEPROM_CHITCHAT   # Give feedback on EEPROM commands. Disable to save PROGMEM.
+opt_enable NOZZLE_PARK_FEATURE #Need for M600
+
+opt_enable BABYSTEPPING
+opt_disable ARC_SUPPORT      # Disable this feature to save ~3226 bytes
+
+opt_enable ADVANCED_PAUSE_FEATURE # M600 Filament change feature
+
+opt_disable Z_MIN_PROBE_REPEATABILITY_TEST # To win some space you can disable M48
