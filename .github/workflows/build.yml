@@ -18,8 +18,8 @@ jobs:
     # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#example-adding-configurations
     strategy:
       matrix:
-        printer: [default]
-        ref: [refs/tags/1.1.9, bugfix-1.1.x, refs/tags/2.1, bugfix-2.1.x]
+        printer: [Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423]
+        ref: [refs/tags/2.1, bugfix-2.1.x]
 #        include:
 #          - printer: windows-latest
 #            ref: 17  
@@ -52,7 +52,9 @@ jobs:
           repository: MarlinFirmware/Configurations
           ref: ${{ matrix.ref }}
           path: marlin/Configurations
-      # TODO: Configure
+      # Configure
+      - name: Apply Marlin configuration
+        run: cp marlin/Configurations/${{ matrix.configuration }}/* marlin/Marlin/Marlin
       
       # Build
       - name: Run PlatformIO
