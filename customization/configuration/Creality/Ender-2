@@ -1,8 +1,6 @@
 opt_disable EEPROM_CHITCHAT # Save PROGMEM space
 opt_enable SLIM_LCD_MENUS # Save PROGMEM space
 opt_enable DISABLE_M503 # Save PROGMEM space
-opt_enable LIN_ADVANCE # Linear advance
-opt_set LIN_ADVANCE_K 1.0 # Preconfigure K to 1.0; this needs to be changed in GCODE for different materials and temperatures
 opt_enable NOZZLE_PARK_FEATURE # Needed for ADVANCED_PAUSE_FEATURE # Filament load/unload in the menu
 # https://www.thingiverse.com/thing:3057052 # Filament load/unload in the menu
 opt_enable PARK_HEAD_ON_PAUSE # Filament load/unload in the menu
@@ -21,7 +19,6 @@ opt_set PROBE_PT_2_Y 30
 opt_set PROBE_PT_3_X 95
 opt_set PROBE_PT_3_Y 130
 opt_enable S_CURVE_ACCELERATION # Reduce frame jerks and vibrations
-opt_enable EXPERIMENTAL_SCURVE # NOTE: LIN_ADVANCE and S_CURVE_ACCELERATION may not play well together!
 opt_set FAN_MAX_PWM 64 # 25% fan speed for Petsfang to fix layer bonding
 # opt_disable SHOW_BOOTSCREEN # Hopefully save some space
 opt_disable SHOW_CUSTOM_BOOTSCREEN # Make it stock
