@@ -71,8 +71,8 @@ jobs:
         run: |
              cd marlin/Marlin && pio run -e ${{ matrix.environment }}
              NAME=$(echo "${{ matrix.configuration }}_${{ matrix.ref }}" | sed -e 's|/|_|g')
-             cp .pio/build/*/firmware-*.bin "firmware-$NAME.bin" || true # for 32-bit firmware
-             cp .pio/build/*/firmware-*.hex "firmware-$NAME.hex" || true # for 16-bit firmware
+             cp .pio/build/*/firmware*.bin "firmware-$NAME.bin" || true # for 32-bit firmware
+             cp .pio/build/*/firmware*.hex "firmware-$NAME.hex" || true # for 16-bit firmware
 
       # Upload build
       - uses: actions/upload-artifact@v2
