@@ -15,7 +15,7 @@ opt_set EXTRUDE_MAXLENGTH 300 # Needed for the next line
 opt_set FILAMENT_CHANGE_UNLOAD_LENGTH 300 # Filament load/unload in the menu   
 opt_set FILAMENT_CHANGE_LOAD_FEEDRATE 100 # Filament load/unload in the menu
 opt_set FILAMENT_CHANGE_LOAD_LENGTH 320 # Filament load/unload in the menu
-opt_set ADVANCED_PAUSE_EXTRUDE_FEEDRATE 3 # Filament load/unload in the menu
+opt_set ADVANCED_PAUSE_PURGE_FEEDRATE 3 # Filament load/unload in the menu
 opt_set ADVANCED_PAUSE_EXTRUDE_LENGTH 50 # Filament load/unload in the menu
 opt_set PAUSE_PARK_NOZZLE_TIMEOUT 180 # Filament load/unload in the menu
 opt_set FILAMENT_CHANGE_NUMBER_OF_ALERT_BEEPS 5 # Filament load/unload in the menu
@@ -33,6 +33,7 @@ opt_set PROBE_PT_3_Y 130
 # opt_enable MESH_BED_LEVELING # Needed by the above # Disabled due to space
 # opt_enable LEVEL_BED_CORNERS # Add a menu item to move between bed corners for manual bed adjustment # Disabled due to space
 opt_enable S_CURVE_ACCELERATION # Reduce frame jerks and vibrations
+opt_enable EXPERIMENTAL_SCURVE # NOTE: LIN_ADVANCE and S_CURVE_ACCELERATION may not play well together!
 opt_set FAN_MAX_PWM 64 # 25% fan speed for Petsfang to fix layer bonding
 # opt_disable SHOW_BOOTSCREEN # Hopefully save some space
 opt_disable SHOW_CUSTOM_BOOTSCREEN # Make it stock
