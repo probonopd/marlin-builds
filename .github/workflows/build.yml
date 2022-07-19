@@ -65,10 +65,15 @@ jobs:
       
       # Build
       - name: Run PlatformIO
-        run: cd marlin/Marlin && pio run -e ${{ matrix.environment }}
+        run: |
+             cd marlin/Marlin && pio run -e ${{ matrix.environment }}
+             NAME=$(echo "${{ matrix.configuration }}_${{ matrix.ref }}" | sed -e 's|/|_|g')
+             cp .pio/build/*/firmware-*.bin "firmware-$NAME.bin"
 
       # Upload build
       - uses: actions/upload-artifact@v2
         with:
           name: firmware.bin
-          path: "marlin/Marlin/.pio/build/*/firmware.*"
+          path: "marlin/Marlin/firmware.*"
+          
+          
