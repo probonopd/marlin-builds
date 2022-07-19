@@ -68,9 +68,11 @@ jobs:
       # Customize
       - name: Apply Marlin customizations
         run: |
-             if [ -e "customization/configuration/${{ matrix.configuration }}" ] ; then
+             export PATH=$(readlink -f marlin/Marlin/buildroot/bin):$PATH
+             cd marlin/Marlin/
+             if [ -e "../../customization/configuration/${{ matrix.configuration }}" ] ; then
                echo "Applying customization for configuration ${{ matrix.configuration }}"
-               bash -ex "customization/configuration/${{ matrix.configuration }}"
+               bash -ex "../../customization/configuration/${{ matrix.configuration }}"
              fi
       # Build
       - name: Run PlatformIO
