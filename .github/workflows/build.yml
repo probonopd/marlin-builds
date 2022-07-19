@@ -19,9 +19,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        configuration: [""] # e.g., Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423
-        ref: [""] # e.g., refs/tags/2.1, bugfix-2.1.x
-        environment: [""] # Depends on configuration; see error message when building for compatible ones
+#        configuration: [""] # e.g., Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423
+#        ref: [""] # e.g., refs/tags/2.1, bugfix-2.1.x
+#        environment: [""] # Depends on configuration; see error message when building for compatible ones
         include:
           - configuration: Creality/Ender-2
             ref: refs/tags/2.1
@@ -65,7 +65,7 @@ jobs:
       
       # Build
       - name: Run PlatformIO
-        run: cd marlin/Marlin && pio run # -e STM32F103RE_btt
+        run: cd marlin/Marlin && pio run -e ${{ matrix.environment }}
 
       # Upload build
       - uses: actions/upload-artifact@v2
