@@ -19,11 +19,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        configuration: [Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423]
-        ref: [refs/tags/2.1, bugfix-2.1.x]
-#        include:
-#          - printer: windows-latest
-#            ref: 17  
+        configuration: [""] # e.g., Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423
+        ref: [""] # e.g., refs/tags/2.1, bugfix-2.1.x
+        environment: [""] # Depends on configuration; see error message when building for compatible ones
+        include:
+          - configuration: Creality/Ender-2
+            ref: refs/tags/2.1
+            environment: melzi_optiboot_optimized
+          - configuration: Creality/Ender-2 Pro/CrealityV423
+            ref: refs/tags/2.1
+            environment: STM32F103RE_creality
+            
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
