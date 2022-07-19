@@ -54,7 +54,7 @@ jobs:
           path: marlin/Configurations
       # Configure
       - name: Apply Marlin configuration
-        run: cp marlin/Configurations/config/examples/${{ matrix.configuration }}/* marlin/Marlin/Marlin
+        run: cp "marlin/Configurations/config/examples/${{ matrix.configuration }}/"* marlin/Marlin/Marlin/
       
       # Build
       - name: Run PlatformIO
