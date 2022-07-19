@@ -1,6 +1,5 @@
 # https://www.youtube.com/watch?v=C41hudDBcK8
-# TODO: FIND OUT HOW TO DO THIS IN MARLIN 2
-# opt_set NOZZLE_TO_PROBE_OFFSET -42 -5 -3
+# opt_set NOZZLE_TO_PROBE_OFFSET "{ -42, -5, -3 }"
 opt_disable PROBE_MANUALLY
 opt_disable MANUAL_PROBE_START_Z
 opt_disable MESH_BED_LEVELING
