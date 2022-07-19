@@ -18,7 +18,7 @@ jobs:
     # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#example-adding-configurations
     strategy:
       matrix:
-        printer: [Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423]
+        configuration: [Creality/Ender-2, Creality/Ender-2 Pro/CrealityV423]
         ref: [refs/tags/2.1, bugfix-2.1.x]
 #        include:
 #          - printer: windows-latest
