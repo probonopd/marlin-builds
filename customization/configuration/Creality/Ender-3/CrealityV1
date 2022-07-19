@@ -1,33 +1,42 @@
-# Allen Key Probe
-# https://www.youtube.com/watch?v=xnBpRn5ex0Q
-
-opt_enable SLIM_LCD_MENUS
-opt_enable AUTO_BED_LEVELING_BILINEAR
+# https://www.youtube.com/watch?v=C41hudDBcK8
+opt_set NOZZLE_TO_PROBE_OFFSET -42 -5 -3
+opt_disable PROBE_MANUALLY
+opt_disable MANUAL_PROBE_START_Z
+opt_disable MESH_BED_LEVELING
+opt_disable RESTORE_LEVELING_AFTER_G28
+opt_disable LCD_BED_LEVELING
+opt_disable BABYSTEP_DISPLAY_TOTAL
+opt_enable FIX_MOUNTED_PROBE
 opt_enable Z_SAFE_HOMING
-opt_enable Z_PROBE_ALLEN_KEY
-opt_set NOZZLE_TO_PROBE_OFFSET -45 -3 -10.93
-# For the Z offset you need to discover yourself, it all depends how long is the Allen-key you use!
-
-# For M851 give a range for adjusting the Z probe offset
-opt_set Z_PROBE_OFFSET_RANGE_MIN -20
-opt_set Z_PROBE_OFFSET_RANGE_MAX 20
-
+opt_enable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+opt_enable EEPROM_SETTINGS
+opt_enable EEPROM_AUTO_INIT
 opt_enable AUTO_BED_LEVELING_BILINEAR
+opt_enable BABYSTEPPING
+opt_enable BABYSTEP_ZPROBE_OFFSET
+opt_enable DOUBLECLICK_FOR_Z_BABYSTEPPING
+opt_enable BABYSTEP_ZPROBE_GFX_OVERLAY
+opt_set GRID_MAX_POINTS_X 5
+opt_set GRID_MAX_POINTS_Y 5
+opt_set MULTIPLE_PROBING 2
+opt_set Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
+opt_set HOMING_FEEDRATE_XY $((30*60))
+opt_set HOMING_FEEDRATE_Z  $((10*60))
+opt_set Z_PROBE_SPEED_SLOW $((4*60))
+opt_set Z_CLEARANCE_BETWEEN_PROBES 15
+opt_set Z_CLEARANCE_MULTI_PROBE 3
+opt_set Z_AFTER_PROBING 20
+opt_set Z_PROBE_LOW_POINT -2
+opt_set Z_HOMING_HEIGHT 20
+opt_set DEFAULT_STEPPER_DEACTIVE_TIME 600
 
-opt_set GRID_MAX_POINTS_X 4 # Vumber of grid points per dimension
+# Save EEPROM space
+opt_disable ARC_SUPPORT
+opt_disable POWER_LOSS_RECOVERY
+opt_enable SLIM_LCD_MENUS
 
-# Homing speeds (mm/m)
-opt_set HOMING_FEEDRATE_XY $((20*60))
-opt_set HOMING_FEEDRATE_Z  $((20*60))
-
-opt_enable EEPROM_SETTINGS # Enable for M500 and M501 commands
+# Save more EEPROM space (not in video)
 opt_disable DISABLE_M503    # Saves ~2700 bytes of PROGMEM. Disable for release!
 opt_disable EEPROM_CHITCHAT   # Give feedback on EEPROM commands. Disable to save PROGMEM.
 opt_enable NOZZLE_PARK_FEATURE #Need for M600
-
-opt_enable BABYSTEPPING
-opt_disable ARC_SUPPORT      # Disable this feature to save ~3226 bytes
-
-opt_enable ADVANCED_PAUSE_FEATURE # M600 Filament change feature
-
 opt_disable Z_MIN_PROBE_REPEATABILITY_TEST # To win some space you can disable M48
