@@ -8,8 +8,11 @@ This contains my customizations. You may want to clone this repository and do yo
 
 Ender-2
 
+* Manual bed mesh leveling and saving its value works
+
 My Ender-2 has no USB socket on its PCB, hence I need to flash it using an USBASP. Yours may be different.
 
-* Connect USBASP to 6-pin header, DO NOT connect VCC from the USBASP to the printer. Have the printer powered by its PSU
+* Connect USBASP to 6-pin header. DO NOT connect VCC from the USBASP to the printer, have the printer powered by its PSU (my USBASP has a jumper for this; neither set it to 3.3V nor to 5V). Alternatively can change a jumper on the Ender-2 mainboard and have it powered through the USBASP instead of the Ender-2 PSU). 
 * Backup the original firmware with `sudo avrdude -p atmega1284p -c usbasp -F -U flash:r:factory.hex:i`.
 * Flash this firmware with `sudo avrdude -p m1284p -c usbasp -F -U flash:w:'/home/me/Downloads/Marlin.ino.hex':i`. A bootloader is not needed!
+* See [this video](https://www.youtube.com/watch?v=spyTTeTn3ek) for more information; including an adapter for the tight spacing of the USBASP connector on the Ender-2 mainboard
