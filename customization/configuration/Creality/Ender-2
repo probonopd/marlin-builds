@@ -1,29 +1,46 @@
-opt_disable EEPROM_CHITCHAT # Save PROGMEM space
-opt_enable SLIM_LCD_MENUS # Save PROGMEM space
-opt_enable DISABLE_M503 # Save PROGMEM space
+# Filament load/unload in the menu
+# https://www.thingiverse.com/thing:3057052
 opt_enable NOZZLE_PARK_FEATURE # Needed for ADVANCED_PAUSE_FEATURE # Filament load/unload in the menu
-# https://www.thingiverse.com/thing:3057052 # Filament load/unload in the menu
 opt_enable PARK_HEAD_ON_PAUSE # Filament load/unload in the menu
 opt_enable ADVANCED_PAUSE_FEATURE # Filament load/unload in the menu
 opt_enable PAUSE_PARK_NO_STEPPER_TIMEOUT # Filament load/unload in the menu
-opt_enable LCD_BED_LEVELING # In the LCD menu # May need to be disabled due to space
+
+# Manual mesh bed leveling without any probe, by using the knob on the display
+opt_enable LCD_BED_LEVELING # In the LCD menu # Works
+opt_enable MESH_BED_LEVELING # Works
+opt_enable PROBE_MANUALLY # Works
+opt_enable EEPROM_SETTINGS # Make it possible to save e.g., mesh and e-steps # Works
+opt_enable RESTORE_LEVELING_AFTER_G28 # Otherwise G28 (auto-home) deactivates the leveling
+
+# Babystep seems not needed since with Mesh Leveling we can also tune Z?
+# opt_enable BABYSTEPPING
+# opt_enable DOUBLECLICK_FOR_Z_BABYSTEPPING
+# opt_enable BABYSTEP_ZPROBE_GFX_OVERLAY
+
 # opt_enable AUTO_BED_LEVELING_3POINT # In the LCD menu # May need to be disabled due to space
-opt_enable MESH_BED_LEVELING
-# opt_enable LEVEL_BED_CORNERS # Add a menu item to move between bed corners for manual bed adjustment # Disabled due to space
 # Set the probe points exactly over the adjustment screws
-opt_enable PROBE_MANUALLY
+# Note: The following points are not used for mesh bed leveling, where it uses 9 points instead
 opt_set PROBE_PT_1_X 20
 opt_set PROBE_PT_1_Y 60
 opt_set PROBE_PT_2_X 115
 opt_set PROBE_PT_2_Y 30
 opt_set PROBE_PT_3_X 95
 opt_set PROBE_PT_3_Y 130
+
+# Jump to the move Z menu on doubleclick when printer is idle
+opt_enable MOVE_Z_WHEN_IDLE
+
 opt_enable S_CURVE_ACCELERATION # Reduce frame jerks and vibrations
+
 opt_set FAN_MAX_PWM 64 # 25% fan speed for Petsfang to fix layer bonding
+
 # opt_disable SHOW_BOOTSCREEN # Hopefully save some space
 opt_disable SHOW_CUSTOM_BOOTSCREEN # Make it stock
 opt_disable CUSTOM_STATUS_SCREEN_IMAGE # Make it stock
 opt_disable ARC_SUPPORT # save ~3226 bytes
-opt_enable EEPROM_SETTINGS # Make it possible to save e.g., e-steps # May need to be disabled due to space # # # # #
+opt_disable EEPROM_CHITCHAT # Save PROGMEM space
+opt_enable SLIM_LCD_MENUS # Save PROGMEM space
+opt_enable DISABLE_M503 # Save PROGMEM space
+
 opt_set DEFAULT_AXIS_STEPS_PER_UNIT "{ 80, 80, 400, 102 }" # 102 e-steps
 opt_set DEFAULT_MAX_ACCELERATION "{ 3000, 3000, 100, 10000 }" # Make it faster
