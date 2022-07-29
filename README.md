@@ -4,11 +4,13 @@ Builds Marlin 2.x firmware for various 3D printers with customizations. The dire
 
 This contains my customizations. You may want to clone this repository and do your own, since my customizations may not be suitable for your machines.
 
-## Flashing Ender-2 with USBASP
+## Ender-2
 
-Ender-2
+### Features
 
-* Manual bed mesh leveling and saving its value works
+* Manual 9-point bed mesh leveling and saving its value works
+
+### Flashing with USBASP
 
 My Ender-2 has no USB socket on its PCB, hence I need to flash it using an USBASP. Yours may be different.
 
