@@ -21,19 +21,19 @@ jobs:
       matrix:
         include:
           - configuration: Creality/Ender-2
-            ref: refs/tags/bugfix-2.1.x
+            ref: refs/tags/2.1.1
             environment: melzi_optimized
           - configuration: Creality/Ender-2
-            ref: refs/tags/bugfix-2.1.x
+            ref: refs/tags/2.1.1
             environment: melzi_optiboot_optimized
           - configuration: Creality/Ender-2 Pro/CrealityV423
-            ref: refs/tags/bugfix-2.1.x
+            ref: refs/tags/2.1.1
             environment: STM32F103RE_creality
           - configuration: Creality/Ender-3/CrealityV1
-            ref: refs/tags/bugfix-2.1.x
+            ref: refs/tags/2.1.1
             environment: melzi_optiboot_optimized
           - configuration: Renkforce/RF100
-            ref: refs/tags/bugfix-2.1.x
+            ref: refs/tags/2.1.1
             environment: mega2560
             
     # The type of runner that the job will run on
