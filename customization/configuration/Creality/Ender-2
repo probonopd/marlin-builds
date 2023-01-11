@@ -1,5 +1,5 @@
 # Workaround for https://github.com/MarlinFirmware/Marlin/issues/25204
-sed -i -e 's|ENABLED(CR10_STOCKDISPLAY)|EITHER(CR10_STOCKDISPLAY, ENDER2_STOCKDISPLAY)|g' Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
+sed -i -e 's|ENABLED(CR10_STOCKDISPLAY)|EITHER(CR10_STOCKDISPLAY, ENDER2_STOCKDISPLAY)\n#define DOGLCD_CS LCD_PINS_RS\n#define DOGLCD_A0 LCD_PINS_D4|g' Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
 
 # Filament load/unload in the menu
 # https://www.thingiverse.com/thing:3057052
